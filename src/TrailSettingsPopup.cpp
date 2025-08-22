@@ -107,14 +107,14 @@ void TrailSettingsPopup::generateGamemodeButtons() {
     m_gamemodesMenu->removeAllChildren();
     auto size = m_gamemodesMenu->getContentSize();
 
-    auto cube = createForGamemode(CUBE);
-    auto ship = createForGamemode(SHIP);
-    auto ball = createForGamemode(BALL);
-    auto ufo = createForGamemode(UFO);
-    auto wave = createForGamemode(WAVE);
-    auto robot = createForGamemode(ROBOT);
-    auto spider = createForGamemode(SPIDER);
-    auto swing = createForGamemode(SWING);
+    auto cube = createForGamemode(Gamemode::CUBE);
+    auto ship = createForGamemode(Gamemode::SHIP);
+    auto ball = createForGamemode(Gamemode::BALL);
+    auto ufo = createForGamemode(Gamemode::UFO);
+    auto wave = createForGamemode(Gamemode::WAVE);
+    auto robot = createForGamemode(Gamemode::ROBOT);
+    auto spider = createForGamemode(Gamemode::SPIDER);
+    auto swing = createForGamemode(Gamemode::SWING);
 
     cube->setPosition({15, 15});
     ship->setPosition({50, 37});
