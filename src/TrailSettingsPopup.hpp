@@ -4,8 +4,8 @@
 
 using namespace geode::prelude;
 
-enum Gamemode : int;
-enum TrailType : int;
+enum class Gamemode : int;
+enum class TrailType : int;
 
 class TrailSettingsPopup : public geode::Popup<> {
     geode::ScrollLayer* m_scollLayer;
