@@ -23,5 +23,8 @@
 	},
 	"tags": [
 		"offline", "customization", "gameplay"
-	]
+	],
+	"dependencies": {
+		"geode.node-ids": "v1.21.1"
+	}
 }
