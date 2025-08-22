@@ -68,7 +68,6 @@ CCNode* RGBPopup::createInput(GLubyte value, const std::string& labelStr, std::f
 
     geode::TextInput* input = geode::TextInput::create(60, "255");
     input->setCommonFilter(CommonFilter::Int);
-    input->setMaxCharCount(3);
     #ifdef GEODE_IS_ANDROID
     input->setMaxCharCount(4);
     #else
