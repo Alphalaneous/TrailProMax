@@ -47,11 +47,11 @@ namespace trail::utils {
         color.g = std::max(0.f, std::min(1.f, gg + m));
         color.b = std::max(0.f, std::min(1.f, bb + m));
     }
-    static ccColor3B SimpleColorPicker::cc4Bto3B(ccColor4B color) {
+    static ccColor3B cc4Bto3B(ccColor4B color) {
         return {color.r, color.g, color.b};
     }
 
-    static ccColor4B SimpleColorPicker::cc3Bto4B(ccColor3B color, GLubyte opacity) {
+    static ccColor4B cc3Bto4B(ccColor3B color, GLubyte opacity) {
         return {color.r, color.g, color.b, opacity};
     }
 }
