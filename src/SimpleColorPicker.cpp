@@ -19,7 +19,7 @@ bool SimpleColorPicker::init(const cocos2d::ccColor4B& color, std::function<void
     m_opacity = color.a;
     m_colorPicker = CCControlColourPicker::colourPicker();
     m_colorPicker->setScale(0.8f);
-    m_colorPicker->setColorValue(cc4Bto3B(color));
+    m_colorPicker->setColorValue(trail::utils::cc4Bto3B(color));
     m_colorPicker->setDelegate(this);
     m_colorPicker->ignoreAnchorPointForPosition(false);
     m_colorPicker->setID("color-picker");
@@ -41,7 +41,7 @@ bool SimpleColorPicker::init(const cocos2d::ccColor4B& color, std::function<void
     m_settingsBtn->setPosition({m_settingsBtn->getContentSize().width/2 + 15, m_settingsBtn->getContentSize().height/2 + 5});
     m_settingsBtn->setCascadeColorEnabled(true);
 
-    m_settingsBtn->setColor(cc4Bto3B(color));
+    m_settingsBtn->setColor(trail::utils::cc4Bto3B(color));
 
     auto menu = CCMenu::create();
     menu->setContentSize(size);
