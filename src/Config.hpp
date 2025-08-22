@@ -4,25 +4,25 @@
 
 using namespace geode::prelude;
 
-enum TrailType : int {
+enum class TrailType : int {
     GROUND, UFO_CLICK, DASH, ROBOT_BURST, TRAILING, SHIP_CLICK, VEHICLE_GROUND, LAND, SWING_BURST
 };
 
-enum Gamemode : int {
+enum class Gamemode : int {
     CUBE, SHIP, BALL, UFO, WAVE, ROBOT, SPIDER, SWING
 };
 
 static const std::string& trailTypeToString(TrailType type) {
     static std::unordered_map<TrailType, std::string> types = {
-        {GROUND, "ground"},
-        {UFO_CLICK, "ufo-click"},
-        {DASH, "dash"},
-        {ROBOT_BURST, "robot-burst"},
-        {TRAILING, "trailing"},
-        {SHIP_CLICK, "ship-click"},
-        {VEHICLE_GROUND, "vehicle-ground"},
-        {LAND, "land"},
-        {SWING_BURST, "swing-burst"},
+        {TrailType::GROUND, "ground"},
+        {TrailType::UFO_CLICK, "ufo-click"},
+        {TrailType::DASH, "dash"},
+        {TrailType::ROBOT_BURST, "robot-burst"},
+        {TrailType::TRAILING, "trailing"},
+        {TrailType::SHIP_CLICK, "ship-click"},
+        {TrailType::VEHICLE_GROUND, "vehicle-ground"},
+        {TrailType::LAND, "land"},
+        {TrailType::SWING_BURST, "swing-burst"},
     };
 
     return types[type];
@@ -31,15 +31,15 @@ static const std::string& trailTypeToString(TrailType type) {
 
 static const std::string& trailTypeToReadableString(TrailType type) {
     static std::unordered_map<TrailType, std::string> types = {
-        {GROUND, "Ground"},
-        {UFO_CLICK, "UFO Click"},
-        {DASH, "Dash"},
-        {ROBOT_BURST, "Robot Burst"},
-        {TRAILING, "Trailing"},
-        {SHIP_CLICK, "Ship Click"},
-        {VEHICLE_GROUND, "Vehicle Ground"},
-        {LAND, "Land"},
-        {SWING_BURST, "Swing Burst"},
+        {TrailType::GROUND, "Ground"},
+        {TrailType::UFO_CLICK, "UFO Click"},
+        {TrailType::DASH, "Dash"},
+        {TrailType::ROBOT_BURST, "Robot Burst"},
+        {TrailType::TRAILING, "Trailing"},
+        {TrailType::SHIP_CLICK, "Ship Click"},
+        {TrailType::VEHICLE_GROUND, "Vehicle Ground"},
+        {TrailType::LAND, "Land"},
+        {TrailType::SWING_BURST, "Swing Burst"},
     };
 
     return types[type];
@@ -47,15 +47,15 @@ static const std::string& trailTypeToReadableString(TrailType type) {
 
 static TrailType trailTypeFromString(const std::string& str) {
     static std::unordered_map<std::string, TrailType> types = {
-        {"ground", GROUND},
-        {"ufo-click", UFO_CLICK},
-        {"dash", DASH},
-        {"robot-burst", ROBOT_BURST},
-        {"trailing", TRAILING},
-        {"ship-click", SHIP_CLICK},
-        {"vehicle-ground", VEHICLE_GROUND},
-        {"land", LAND},
-        {"swing-burst", SWING_BURST},
+        {"ground", TrailType::GROUND},
+        {"ufo-click", TrailType::UFO_CLICK},
+        {"dash", TrailType::DASH},
+        {"robot-burst", TrailType::ROBOT_BURST},
+        {"trailing", TrailType::TRAILING},
+        {"ship-click", TrailType::SHIP_CLICK},
+        {"vehicle-ground", TrailType::VEHICLE_GROUND},
+        {"land", TrailType::LAND},
+        {"swing-burst", TrailType::SWING_BURST},
     };
 
     return types[str];
@@ -63,14 +63,14 @@ static TrailType trailTypeFromString(const std::string& str) {
 
 static const std::string& gamemodeToString(Gamemode type) {
     static std::unordered_map<Gamemode, std::string> modes = {
-        {CUBE, "cube"},
-        {SHIP, "ship"},
-        {BALL, "ball"},
-        {UFO, "ufo"},
-        {WAVE, "wave"},
-        {ROBOT, "robot"},
-        {SPIDER, "spider"},
-        {SWING, "swing"},
+        {Gamemode::CUBE, "cube"},
+        {Gamemode::SHIP, "ship"},
+        {Gamemode::BALL, "ball"},
+        {Gamemode::UFO, "ufo"},
+        {Gamemode::WAVE, "wave"},
+        {Gamemode::ROBOT, "robot"},
+        {Gamemode::SPIDER, "spider"},
+        {Gamemode::SWING, "swing"},
     };
 
     return modes[type];
@@ -78,14 +78,14 @@ static const std::string& gamemodeToString(Gamemode type) {
 
 static const std::string& gamemodeToStringRob(Gamemode type) {
     static std::unordered_map<Gamemode, std::string> modes = {
-        {CUBE, "icon"},
-        {SHIP, "ship"},
-        {BALL, "ball"},
-        {UFO, "bird"},
-        {WAVE, "dart"},
-        {ROBOT, "robot"},
-        {SPIDER, "spider"},
-        {SWING, "swing"},
+        {Gamemode::CUBE, "icon"},
+        {Gamemode::SHIP, "ship"},
+        {Gamemode::BALL, "ball"},
+        {Gamemode::UFO, "bird"},
+        {Gamemode::WAVE, "dart"},
+        {Gamemode::ROBOT, "robot"},
+        {Gamemode::SPIDER, "spider"},
+        {Gamemode::SWING, "swing"},
     };
 
     return modes[type];
@@ -93,14 +93,14 @@ static const std::string& gamemodeToStringRob(Gamemode type) {
 
 static Gamemode gamemodeFromString(const std::string& str) {
     static std::unordered_map<std::string, Gamemode> modes = {
-        {"cube", CUBE},
-        {"ship", SHIP},
-        {"ball", BALL},
-        {"ufo", UFO},
-        {"wave", WAVE},
-        {"robot", ROBOT},
-        {"spider", SPIDER},
-        {"swing", SWING},
+        {"cube", Gamemode::CUBE},
+        {"ship", Gamemode::SHIP},
+        {"ball", Gamemode::BALL},
+        {"ufo", Gamemode::UFO},
+        {"wave", Gamemode::WAVE},
+        {"robot", Gamemode::ROBOT},
+        {"spider", Gamemode::SPIDER},
+        {"swing", Gamemode::SWING},
     };
 
     return modes[str];
@@ -113,15 +113,15 @@ struct DefaultColors {
 
 static const DefaultColors& defaultColorsForType(TrailType type) {
     static std::unordered_map<TrailType, DefaultColors> defaults = {
-        { GROUND,  {{ 0.3882353, 0.24705882, 0.5803922, 1 }, { 0, 0, 0, 1 }} },
-        { UFO_CLICK, { { 0.3882353, 0.24705882, 0.5803922, 1 }, { 0.3882353, 0.24705882, 0.5803922, 1 } } },
-        { DASH, { { 1, 0.98039216, 0.49803922, 1 }, { 1, 0.98039216, 0.49803922, 0.5 } } },
-        { ROBOT_BURST, { { 1, 0, 0, 1 }, { 1, 1, 0, 1 } } },
-        { TRAILING, { { 1, 0.39215687, 0, 1 }, { 1, 0, 0, 1 } } },
-        { SHIP_CLICK, { { 1, 0.74509805, 0, 1 }, { 1, 0, 0, 1 } } },
-        { VEHICLE_GROUND, { { 1, 1, 1, 1 }, { 0, 0, 0, 1 } } },
-        { LAND, { { 0.3882353, 0.24705882, 0.5803922, 1 }, { 0, 0, 0, 1 } } },
-        { SWING_BURST, { { 1, 0.39215687, 0, 1 }, { 1, 0, 0, 1 } } },
+        { TrailType::GROUND,  {{ 0.3882353, 0.24705882, 0.5803922, 1 }, { 0, 0, 0, 1 }} },
+        { TrailType::UFO_CLICK, { { 0.3882353, 0.24705882, 0.5803922, 1 }, { 0.3882353, 0.24705882, 0.5803922, 1 } } },
+        { TrailType::DASH, { { 1, 0.98039216, 0.49803922, 1 }, { 1, 0.98039216, 0.49803922, 0.5 } } },
+        { TrailType::ROBOT_BURST, { { 1, 0, 0, 1 }, { 1, 1, 0, 1 } } },
+        { TrailType::TRAILING, { { 1, 0.39215687, 0, 1 }, { 1, 0, 0, 1 } } },
+        { TrailType::SHIP_CLICK, { { 1, 0.74509805, 0, 1 }, { 1, 0, 0, 1 } } },
+        { TrailType::VEHICLE_GROUND, { { 1, 1, 1, 1 }, { 0, 0, 0, 1 } } },
+        { TrailType::LAND, { { 0.3882353, 0.24705882, 0.5803922, 1 }, { 0, 0, 0, 1 } } },
+        { TrailType::SWING_BURST, { { 1, 0.39215687, 0, 1 }, { 1, 0, 0, 1 } } },
     };
 
     return defaults[type];
@@ -129,14 +129,14 @@ static const DefaultColors& defaultColorsForType(TrailType type) {
 
 static bool defaultTrailStateForGamemode(Gamemode gamemode) {
     static std::unordered_map<Gamemode, bool> defaults = {
-        {CUBE, false},
-        {SHIP, true},
-        {BALL, false},
-        {UFO, true},
-        {WAVE, true},
-        {ROBOT, false},
-        {SPIDER, false},
-        {SWING, true},
+        {Gamemode::CUBE, false},
+        {Gamemode::SHIP, true},
+        {Gamemode::BALL, false},
+        {Gamemode::UFO, true},
+        {Gamemode::WAVE, true},
+        {Gamemode::ROBOT, false},
+        {Gamemode::SPIDER, false},
+        {Gamemode::SWING, true},
     };
 
     return defaults[gamemode];
@@ -267,15 +267,15 @@ protected:
     bool m_trailEnabled;
     bool m_trailForceDisabled = false;
     std::unordered_map<TrailType, ParticleTrailData> m_particleTrailData = {
-        {GROUND, {}},
-        {UFO_CLICK, {}},
-        {DASH, {}},
-        {ROBOT_BURST, {}},
-        {TRAILING, {}},
-        {SHIP_CLICK, {}},
-        {VEHICLE_GROUND, {}},
-        {LAND, {}},
-        {SWING_BURST, {}},
+        {TrailType::GROUND, {}},
+        {TrailType::UFO_CLICK, {}},
+        {TrailType::DASH, {}},
+        {TrailType::ROBOT_BURST, {}},
+        {TrailType::TRAILING, {}},
+        {TrailType::SHIP_CLICK, {}},
+        {TrailType::VEHICLE_GROUND, {}},
+        {TrailType::LAND, {}},
+        {TrailType::SWING_BURST, {}},
     };
 
 public:
@@ -335,14 +335,14 @@ class Config {
 
 protected:
     std::unordered_map<Gamemode, GamemodeData> m_gamemodeData = {
-        {CUBE, {}},
-        {SHIP, {}},
-        {BALL, {}},
-        {UFO, {}},
-        {WAVE, {}},
-        {ROBOT, {}},
-        {SPIDER, {}},
-        {SWING, {}},
+        {Gamemode::CUBE, {}},
+        {Gamemode::SHIP, {}},
+        {Gamemode::BALL, {}},
+        {Gamemode::UFO, {}},
+        {Gamemode::WAVE, {}},
+        {Gamemode::ROBOT, {}},
+        {Gamemode::SPIDER, {}},
+        {Gamemode::SWING, {}},
     };
 
 public:
