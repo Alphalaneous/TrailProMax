@@ -143,7 +143,7 @@ void TrailSettingsPopup::generateTrailCells() {
     gap1->setContentSize({0.f, 2.5f});
     m_scollLayer->m_contentLayer->addChild(gap1);
 
-    for (int i = 0; i < TrailType::SWING_BURST + 1; i++) {
+    for (int i = 0; i < static_cast<int>(TrailType::SWING_BURST) + 1; i++) {
         auto cell = TrailCell::create(this, m_selectedGamemode, static_cast<TrailType>(i));
         m_scollLayer->m_contentLayer->addChild(cell);
     }
