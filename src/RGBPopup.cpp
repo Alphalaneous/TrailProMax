@@ -1,4 +1,5 @@
 #include "RGBPopup.hpp"
+#include "Utils.hpp"
 
 RGBPopup* RGBPopup::create(SimpleColorPicker* picker) {
     auto ret = new RGBPopup();
@@ -35,15 +36,15 @@ bool RGBPopup::setup(SimpleColorPicker* picker) {
 
     contentNode->addChild(createInput(m_color.r, "R:", [this] (GLubyte byte) {
         m_color.r = byte;
-        m_colorPicker->colorValueChanged(m_colorPicker->cc4Bto3B(m_color));
+        m_colorPicker->colorValueChanged(trail::utils::cc4Bto3B(m_color));
     }));
     contentNode->addChild(createInput(m_color.g, "G:", [this] (GLubyte byte) {
         m_color.g = byte;
-        m_colorPicker->colorValueChanged(m_colorPicker->cc4Bto3B(m_color));
+        m_colorPicker->colorValueChanged(trail::utils::cc4Bto3B(m_color));
     }));
     contentNode->addChild(createInput(m_color.b, "B:", [this] (GLubyte byte) {
         m_color.b = byte;
-        m_colorPicker->colorValueChanged(m_colorPicker->cc4Bto3B(m_color));
+        m_colorPicker->colorValueChanged(trail::utils::cc4Bto3B(m_color));
     }));
 
     contentNode->updateLayout();
