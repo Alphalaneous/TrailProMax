@@ -11,14 +11,14 @@ class $modify(MyPlayerObject, PlayerObject) {
         PlayerObject::update(p0);
         if (!PlayLayer::get()) return;
 
-        if (m_isShip) checkSetting(SHIP);
-        else if (m_isBird) checkSetting(UFO);
-        else if (m_isBall) checkSetting(BALL);
-        else if (m_isDart) checkSetting(WAVE);
-        else if (m_isRobot) checkSetting(ROBOT);
-        else if (m_isSpider) checkSetting(SPIDER);
-        else if (m_isSwing) checkSetting(SWING);
-        else checkSetting(CUBE);
+        if (m_isShip) checkSetting(Gamemode::SHIP);
+        else if (m_isBird) checkSetting(Gamemode::UFO);
+        else if (m_isBall) checkSetting(Gamemode::BALL);
+        else if (m_isDart) checkSetting(Gamemode::WAVE);
+        else if (m_isRobot) checkSetting(Gamemode::ROBOT);
+        else if (m_isSpider) checkSetting(Gamemode::SPIDER);
+        else if (m_isSwing) checkSetting(Gamemode::SWING);
+        else checkSetting(Gamemode::CUBE);
     }
 
     void checkSetting(Gamemode gamemode) {
@@ -49,31 +49,31 @@ class $modify(MyPlayerObject, PlayerObject) {
     }
 
     void checkParticlesEnabled(Gamemode gamemode) {
-        m_playerGroundParticles->setVisible(getParticleEnabled(gamemode, GROUND));
-        m_ufoClickParticles->setVisible(getParticleEnabled(gamemode, UFO_CLICK));
-        m_dashParticles->setVisible(getParticleEnabled(gamemode, DASH));
-        m_robotBurstParticles->setVisible(getParticleEnabled(gamemode, ROBOT_BURST));
-        m_trailingParticles->setVisible(getParticleEnabled(gamemode, TRAILING));
-        m_shipClickParticles->setVisible(getParticleEnabled(gamemode, SHIP_CLICK));
-        m_vehicleGroundParticles->setVisible(getParticleEnabled(gamemode, VEHICLE_GROUND));
-        m_landParticles0->setVisible(getParticleEnabled(gamemode, LAND));
-        m_landParticles1->setVisible(getParticleEnabled(gamemode, LAND));
-        m_swingBurstParticles1->setVisible(getParticleEnabled(gamemode, SWING_BURST));
-        m_swingBurstParticles2->setVisible(getParticleEnabled(gamemode, SWING_BURST));
+        m_playerGroundParticles->setVisible(getParticleEnabled(gamemode, TrailType::GROUND));
+        m_ufoClickParticles->setVisible(getParticleEnabled(gamemode, TrailType::UFO_CLICK));
+        m_dashParticles->setVisible(getParticleEnabled(gamemode, TrailType::DASH));
+        m_robotBurstParticles->setVisible(getParticleEnabled(gamemode, TrailType::ROBOT_BURST));
+        m_trailingParticles->setVisible(getParticleEnabled(gamemode, TrailType::TRAILING));
+        m_shipClickParticles->setVisible(getParticleEnabled(gamemode, TrailType::SHIP_CLICK));
+        m_vehicleGroundParticles->setVisible(getParticleEnabled(gamemode, TrailType::VEHICLE_GROUND));
+        m_landParticles0->setVisible(getParticleEnabled(gamemode, TrailType::LAND));
+        m_landParticles1->setVisible(getParticleEnabled(gamemode, TrailType::LAND));
+        m_swingBurstParticles1->setVisible(getParticleEnabled(gamemode, TrailType::SWING_BURST));
+        m_swingBurstParticles2->setVisible(getParticleEnabled(gamemode, TrailType::SWING_BURST));
     }
 
     void checkParticlesColor(Gamemode gamemode) {
-        setParticleColor(m_playerGroundParticles, gamemode, GROUND);
-        setParticleColor(m_ufoClickParticles, gamemode, UFO_CLICK);
-        setParticleColor(m_dashParticles, gamemode, DASH);
-        setParticleColor(m_robotBurstParticles, gamemode, ROBOT_BURST);
-        setParticleColor(m_trailingParticles, gamemode, TRAILING);
-        setParticleColor(m_shipClickParticles, gamemode, SHIP_CLICK);
-        setParticleColor(m_vehicleGroundParticles, gamemode, VEHICLE_GROUND);
-        setParticleColor(m_landParticles0, gamemode, LAND);
-        setParticleColor(m_landParticles1, gamemode, LAND);
-        setParticleColor(m_swingBurstParticles1, gamemode, SWING_BURST);
-        setParticleColor(m_swingBurstParticles2, gamemode, SWING_BURST);
+        setParticleColor(m_playerGroundParticles, gamemode, TrailType::GROUND);
+        setParticleColor(m_ufoClickParticles, gamemode, TrailType::UFO_CLICK);
+        setParticleColor(m_dashParticles, gamemode, TrailType::DASH);
+        setParticleColor(m_robotBurstParticles, gamemode, TrailType::ROBOT_BURST);
+        setParticleColor(m_trailingParticles, gamemode, TrailType::TRAILING);
+        setParticleColor(m_shipClickParticles, gamemode, TrailType::SHIP_CLICK);
+        setParticleColor(m_vehicleGroundParticles, gamemode, TrailType::VEHICLE_GROUND);
+        setParticleColor(m_landParticles0, gamemode, TrailType::LAND);
+        setParticleColor(m_landParticles1, gamemode, TrailType::LAND);
+        setParticleColor(m_swingBurstParticles1, gamemode, TrailType::SWING_BURST);
+        setParticleColor(m_swingBurstParticles2, gamemode, TrailType::SWING_BURST);
     }
 
     void setParticleColor(CCParticleSystemQuad* particles, Gamemode gamemode, TrailType type) {
