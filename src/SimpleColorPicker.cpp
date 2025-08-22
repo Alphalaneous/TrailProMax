@@ -1,5 +1,6 @@
 #include "SimpleColorPicker.hpp"
 #include "RGBPopup.hpp"
+#include "Utils.hpp"
 
 SimpleColorPicker* SimpleColorPicker::create(const cocos2d::ccColor4B& color, std::function<void(const cocos2d::ccColor4B&)> callback){
     auto ret = new SimpleColorPicker();
@@ -86,12 +87,12 @@ bool SimpleColorPicker::init(const cocos2d::ccColor4B& color, std::function<void
 }
 
 void SimpleColorPicker::colorValueChanged(cocos2d::ccColor3B color) {
-    if (m_callback) m_callback(cc3Bto4B(color));
+    if (m_callback) m_callback(trail::utils::cc3Bto4B(color, m_opacity));
     m_settingsBtn->setColor(color);
 }
 
 void SimpleColorPicker::setColor(const cocos2d::ccColor4B& color) {
-    m_colorPicker->setColorValue(cc4Bto3B(color));
+    m_colorPicker->setColorValue(trail::utils::cc4Bto3B(color));
 }
 
 void SimpleColorPicker::onSettings(CCObject* sender) {
@@ -99,5 +100,5 @@ void SimpleColorPicker::onSettings(CCObject* sender) {
 }
 
 ccColor4B SimpleColorPicker::getColor() {
-    return cc3Bto4B(m_colorPicker->getColorValue());
+    return trail::utils::cc3Bto4B(m_colorPicker->getColorValue(), m_opacity);
 }
