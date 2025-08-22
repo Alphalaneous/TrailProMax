@@ -1,14 +1,6 @@
 #include "SimpleColorPicker.hpp"
 #include "RGBPopup.hpp"
 
-ccColor3B SimpleColorPicker::cc4Bto3B(ccColor4B color) {
-    return {color.r, color.g, color.b};
-}
-
-ccColor4B SimpleColorPicker::cc3Bto4B(ccColor3B color) {
-    return {color.r, color.g, color.b, m_opacity};
-}
-
 SimpleColorPicker* SimpleColorPicker::create(const cocos2d::ccColor4B& color, std::function<void(const cocos2d::ccColor4B&)> callback){
     auto ret = new SimpleColorPicker();
     if (ret->init(color, callback)) {
