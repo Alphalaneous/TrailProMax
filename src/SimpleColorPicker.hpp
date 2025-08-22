@@ -13,9 +13,6 @@ public:
     static SimpleColorPicker* create(const cocos2d::ccColor4B& color, std::function<void(const cocos2d::ccColor4B&)> callback);
     bool init(const cocos2d::ccColor4B& color, std::function<void(const cocos2d::ccColor4B&)> callback);
 
-    ccColor3B cc4Bto3B(ccColor4B color);
-    ccColor4B cc3Bto4B(ccColor3B color);
-
     void colorValueChanged(cocos2d::ccColor3B color) override;
     void setColor(const cocos2d::ccColor4B& color);
     ccColor4B getColor();
